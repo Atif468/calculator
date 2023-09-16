@@ -1,11 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>calculator</title>
+    <link rel="stylesheet" href="calcutaor.css">
 </head>
+
 <body>
-    
+    <center>
+        <h1 class="slide-text-container">Calculator</h1>
+    </center>
+    <div class="container">
+        <div class="box" id="box">
+
+        </div>
+
+        <table class="numbers">
+            <tr>
+                <td>
+                    <input type="button" onclick="add(7)" value="7" class="num" />
+                </td>
+                <td>
+                    <input type="button" onclick="add(8)" value="8" class="num" />
+                </td>
+                <td>
+                    <input type="button" onclick="add(9)" value="9" class="num" />
+                </td>
+                <td>
+                    <input type="button" onclick="add('+')" value="+" class="nums" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="button" onclick="add(4)" value="4" class="num" />
+                </td>
+                <td>
+                    <input type="button" onclick="add(5)" value="5" class="num" />
+                </td>
+                <td>
+                    <input type="button" onclick="add(6)" value="6" class="num" />
+                </td>
+                <td>
+                    <input type="button" onclick="add('-')" value="-" class="nums" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="button" onclick="add(1)" value="1" class="num" />
+                </td>
+                <td>
+                    <input type="button" onclick="add(2)" value="2" class="num" />
+                </td>
+                <td>
+                    <input type="button" onclick="add(3)" value="3" class="num" />
+                </td>
+                <td>
+                    <input type="button" onclick="add('*')" value="*" class="nums" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="button" onclick="clr()" value="AC" class="num" />
+                </td>
+                <td>
+                    <input type="button" onclick="add(0)" value="0" class="num" />
+                </td>
+                <td>
+                    <input type="button" onclick="equal()" value="=" class="num" />
+                </td>
+                <td>
+                    <input type="button" onclick="add('/')" value="/" class="nums" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function add(val) {
+            document.getElementById("box").innerText += val;
+        }
+        function equal() {
+            const result = document.getElementById("box").innerText;
+            try {
+                const a = eval(result);
+                if (isNaN(a) || !isFinite(a)) {
+                    document.getElementById("box").innerText = "Error";
+                } else {
+                    document.getElementById("box").innerText = a;
+                }
+            } catch (error) {
+                document.getElementById("box").innerText = "Error";
+            }
+        }
+        function clr() {
+            document.getElementById("box").innerText = "";
+        }
+    </script>
+
 </body>
+
 </html>
